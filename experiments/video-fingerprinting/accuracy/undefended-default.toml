@@ -1,0 +1,12 @@
+[eval]
+base_dataset = "/home/tobipull/LongEnough/none-none/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw2/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw4/"
+#base_dataset = "/home/tobipull/LongEnough-variable/none-none-bw8/"
+trace_length = 4_000_000
+df = "/home/tobipull/work/scripts/vdf.py"
+rf = "/home/tobipull/work/scripts/vrf.py"
+csv = "undefended.csv"
+seed = 0
+

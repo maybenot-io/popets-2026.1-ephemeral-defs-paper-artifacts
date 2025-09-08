@@ -1,0 +1,86 @@
+[derive]
+num_machines = [1,1]
+max_attempts = 769
+
+[derive.machine]
+num_states = [3,4]
+duration_ref_point = [247_000, 320_000]
+min_action_timeout = [196, 396]
+count_ref_point = [254, 469]
+allow_blocking_client = false
+allow_blocking_server = false
+allow_expressive = false
+allow_frac_limits = false
+allow_fixed_budget = true
+
+[derive.env]
+traces = ["DeepFingerprinting", "GongSurakav"]
+num_traces = [12, 17]
+rtt_in_ms = [50, 500]
+#packets_per_sec = [10_000, 20_000]
+sim_steps = [5_000, 5_000]
+
+[derive.constraints]
+client_load = [2.2, 2.8]
+server_load = [1.0, 2.5]
+delay = [0.0, 0.0]
+client_min_normal_packets = 33
+server_min_normal_packets = 100
+
+[search]
+seed = 0
+n = 1000
+
+[combo]
+n = 100_000
+height = 2
+max_attempts = 769
+
+[combo.env]
+traces = ["DeepFingerprinting", "GongSurakav"]
+num_traces = [12, 17]
+rtt_in_ms = [50, 500]
+#packets_per_sec = [10_000, 20_000]
+sim_steps = [5_000, 5_000]
+
+[combo.constraints]
+client_load = [2.2, 2.8]
+server_load = [1.0, 2.5]
+delay = [0.0, 0.0]
+client_min_normal_packets = 33
+server_min_normal_packets = 100
+
+[sim]
+base_dataset = "/mnt/ramdisk/bigenough-95x10x20-standard-rngsubpages/"
+#base_dataset = "/home/pulls/dataset/gong-surakav-undefended-cw"
+max_samples = 100
+tunable_defense_limits = [0.5]
+seed = 0
+
+[sim.simulator]
+rtt_in_ms = [50, 500]
+#packets_per_sec = [40_000, 40_000]
+trace_length = 60_000
+events_multiplier = 1_000
+
+[sim.simulator.client]
+padding_budget = [1_000, 2_000]
+blocking_budget = [0, 0]
+padding_frac = [0.95, 0.95]
+blocking_frac = [0, 0]
+
+[sim.simulator.server]
+padding_budget = [1_000, 3_000]
+blocking_budget = [0, 0]
+padding_frac = [0.95, 0.95]
+blocking_frac = [0, 0]
+
+[eval]
+base_dataset = "/mnt/ramdisk/bigenough-95x10x20-standard-rngsubpages/"
+#base_dataset = "/home/pulls/dataset/gong-surakav-undefended-cw"
+trace_length = 60_000
+df = "/home/pulls/scripts/df.py"
+rf = "/home/pulls/scripts/rf.py"
+csv = "eph-padding-bottle.csv"
+seed = 0
+

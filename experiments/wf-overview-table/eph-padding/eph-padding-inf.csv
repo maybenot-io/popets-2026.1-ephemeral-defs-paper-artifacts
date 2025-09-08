@@ -1,0 +1,2 @@
+dataset,dataset_length,base,base sent,base recv,defended,defended sent,defended recv,missing,missing sent,missing recv,load,load sent,load recv,delay,time base,time defended,rf,df
+/mnt/ramdisk/eph-padding-1k-c2-100k/limit-0.75,19000,4188.8085,347.9627,3840.8458,6674.9310,905.0119,5769.9191,0.0000,0.0000,0.0000,0.5935,1.6009,0.5023,0.0000,28.0652,28.0652,0.5537,0.4245

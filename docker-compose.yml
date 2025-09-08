@@ -1,0 +1,71 @@
+version: "3.9"
+
+services:
+  defml:
+    build: .
+    image: popets:repr
+    container_name: popets
+    # Require NVIDIA GPU runtime
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # Equivalent to --gpus all in docker run
+    ipc: "host"        # use host /dev/shm
+    runtime: nvidia
+
+    environment:
+      # Inside the compose network, reach MLflow by its service name
+      MLFLOW_TRACKING_URI: http://mlflow:8080
+      WF_DATA_DIR: /workspace/def-ml/wfdata
+    # Mounts: project code and data folders
+    volumes:
+      # Data folders
+      - ./def-ml/wfdata:/workspace/def-ml/wfdata:ro
+      - ./def-ml/.data:/workspace/def-ml/.data
+      - ./def-ml/mbntmachines:/workspace/def-ml/mbntmachines
+      - ./def-ml/figs:/workspace/def-ml/figs
+      - ./def-ml/tables:/workspace/def-ml/tables
+
+    # Default working dir
+    working_dir: /workspace/def-ml
+
+    # Interactive mode
+    stdin_open: true
+    tty: true
+
+    # Healthcheck to ensure GPU is visible
+    healthcheck:
+      test: ["CMD-SHELL", "nvidia-smi -L >/dev/null 2>&1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  mlflow:
+    image: popets:repr          # reuse the same image (has uv + python deps)
+    container_name: popets-mlflow
+    working_dir: /workspace/def-ml
+    # put uv cache under /workspace (which you own)
+    command: >
+      bash -lc "uv run mlflow server --host 0.0.0.0 --port 8080 --backend-store-uri sqlite:////workspace/def-ml/.mlflow_db/mlflow.db --artifacts-destination /workspace/def-ml/.mlartifacts"
+    ports:
+      - "8080:8080"             # host -> MLflow UI at http://localhost:5000
+    volumes:
+      - mlflow_artifacts:/workspace/def-ml/.mlartifacts
+      - mlflow_db:/workspace/def-ml/.mlflow_db
+
+    # Simple healthcheck for the HTTP endpoint
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c 'import urllib.request,sys; \
+             sys.exit(0) if urllib.request.urlopen(\"http://127.0.0.1:8080\").status==200 else sys.exit(1)'"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mlflow_artifacts:
+  mlflow_db:
+

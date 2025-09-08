@@ -1,0 +1,27 @@
+[sim]
+#base_dataset = "/home/tobipull/LongEnough/none-none/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw2/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw4/"
+#base_dataset = "/home/tobipull/LongEnough-variable/none-none-bw8/"
+max_samples = 100
+seed = 0
+
+[sim.simulator]
+rtt_in_ms = [50, 500]
+packets_per_sec = [40_000, 40_000]
+trace_length = 4_000_000
+events_multiplier = 1_000
+
+[eval]
+#base_dataset = "/home/tobipull/LongEnough/none-none/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw2/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw4/"
+#base_dataset = "/home/tobipull/LongEnough-variable/none-none-bw8/"
+trace_length = 4_000_000
+df = "/home/tobipull/work/scripts/vdf.py"
+rf = "/home/tobipull/work/scripts/vrf.py"
+csv = "scrambler-inf.csv"
+seed = 0
+

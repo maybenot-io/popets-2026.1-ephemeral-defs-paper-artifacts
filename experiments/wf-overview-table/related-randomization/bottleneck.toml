@@ -1,0 +1,19 @@
+[sim]
+base_dataset = "/mnt/ramdisk/bigenough-95x10x20-standard-rngsubpages/"
+max_samples = 20
+seed = 0
+
+[sim.simulator]
+rtt_in_ms = [50, 500]
+#packets_per_sec = [40_000, 40_000]
+trace_length = 60_000
+events_multiplier = 1_000
+
+[eval]
+base_dataset = "/mnt/ramdisk/bigenough-95x10x20-standard-rngsubpages/"
+trace_length = 60_000
+df = "/home/pulls/scripts/df.py"
+rf = "/home/pulls/scripts/rf.py"
+csv = "bottleneck.csv"
+seed = 0
+

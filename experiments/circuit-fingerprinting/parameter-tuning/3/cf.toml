@@ -1,0 +1,68 @@
+[derive]
+num_machines = [1,1]
+max_attempts = 551
+
+[derive.machine]
+num_states = [3,4]
+allow_blocking_client = true
+allow_blocking_server = true
+allow_fixed_budget = true
+allow_expressive = false
+# count_ref_point
+duration_ref_point = [23_214, 796_961]
+# min_action_timeout
+
+[derive.env]
+traces = ["TorCircuit"]
+num_traces = [4, 14]
+rtt_in_ms = [50, 500]
+packets_per_sec = [10_000, 10_000]
+sim_steps = [1_000, 1_000]
+
+[derive.constraints]
+client_load = [1.758, 4.956]
+server_load = [0.5, 10.0]
+delay = [0.5, 5.0]
+client_min_normal_packets = 0
+server_min_normal_packets = 0
+include_after_last_normal = false
+
+[search]
+seed = 0
+n = 1_000
+max_duration_sec = 900
+
+[sim]
+base_dataset = "/home/tobipull/circuitfp-general-rend"
+max_samples = 10_000
+tunable_defense_limits = [1.0, 0.75, 0.5]
+seed = 0
+
+[sim.simulator.client]
+padding_budget = [1000, 1000]
+blocking_budget = [100_000, 200_000]
+padding_frac = [0.9, 0.9]
+blocking_frac = [0.9, 0.9]
+
+[sim.simulator.server]
+padding_budget = [1000, 1000]
+blocking_budget = [100_000, 200_000]
+padding_frac = [0.9, 0.9]
+blocking_frac = [0.9, 0.9]
+
+[sim.simulator]
+rtt_in_ms = [50, 500]
+packets_per_sec = [40_000, 40_000]
+trace_length = 10_000
+events_multiplier = 1_000
+
+[eval]
+base_dataset = "/home/tobipull/circuitfp-general-rend"
+trace_length = 10_000
+df = "/home/tobipull/work/scripts/df.py"
+rf = "/home/tobipull/work/scripts/rf.py"
+csv = "cf-tune-3.csv"
+seed = 0
+
+
+

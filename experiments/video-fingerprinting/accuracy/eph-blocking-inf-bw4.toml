@@ -1,0 +1,39 @@
+[sim]
+#base_dataset = "/home/tobipull/LongEnough/none-none/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw2/"
+base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw4/"
+#base_dataset = "/home/tobipull/LongEnough-variable/none-none-bw8/"
+max_samples = 100
+tunable_defense_limits = [0.75]
+seed = 0
+
+[sim.simulator]
+rtt_in_ms = [50, 500]
+packets_per_sec = [40_000, 40_000]
+trace_length = 2_000_000
+events_multiplier = 1_000
+
+[sim.simulator.client]
+padding_budget = [1_000, 2_000]
+blocking_budget = [100_000, 200_000]
+padding_frac = [0.95, 0.95]
+blocking_frac = [0.5, 0.5]
+
+[sim.simulator.server]
+padding_budget = [1_000, 3_000]
+blocking_budget = [100_000, 200_000]
+padding_frac = [0.95, 0.95]
+blocking_frac = [0.5, 0.5]
+
+[eval]
+#base_dataset = "/home/tobipull/LongEnough/none-none/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw2/"
+base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw4/"
+#base_dataset = "/home/tobipull/LongEnough-variable/none-none-bw8/"
+trace_length = 2_000_000
+df = "/home/tobipull/work/scripts/vdf.py"
+rf = "/home/tobipull/work/scripts/vrf.py"
+csv = "eph-blocking-inf.csv"
+seed = 0

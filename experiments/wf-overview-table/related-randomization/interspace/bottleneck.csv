@@ -1,0 +1,2 @@
+dataset,dataset_length,base,base sent,base recv,defended,defended sent,defended recv,missing,missing sent,missing recv,bandwidth,bandwidth sent,bandwidth recv,delay,time base,time defended,rf,df
+/mnt/ramdisk/interspace-bottleneck.toml,19000,4188.8085,347.9627,3840.8458,6566.7543,1256.8084,5309.9459,0.0000,0.0000,0.0000,0.5677,2.6119,0.3825,0.1257,28.0652,31.5944,0.7076,0.5995

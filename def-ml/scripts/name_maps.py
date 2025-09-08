@@ -1,0 +1,16 @@
+DEFENCE_NAME_MAP = {
+    "breakpad": "Break-Pad",
+    "front": "FRONT",
+    "interspace": "Interspace",
+    "regulator": "RegulaTor",
+    "maybenot | sc.=0.5 | eph-blocking-bottle-1k-c2-100k": "Ephemeral blocking | sc.=0.5",
+    "maybenot | sc.=0.75 | eph-blocking-bottle-1k-c2-100k": "Ephemeral blocking | sc.=0.75",
+    "maybenot | sc.=0.75 | eph-blocking-1k-c2-100k": "Ephemeral blocking | sc.=0.75",
+    "maybenot | sc.=0.5 | eph-padding-bottle-1k-c2-100k": "Ephemeral padding-only | sc.=0.5",
+    "maybenot | sc.=0.75 | eph-padding-1k-c2-100k": "Ephemeral padding-only | sc.=0.75",
+    "maybenot | sc.=0.5 | def-padding-only-bottleneck-100k": "Ephemeral padding-only 3.3. 100k | sc.=0.5",
+    "maybenot | sc.=0.5 | def-padding-only-infinite-100k": "Ephemeral padding-only 3.3. 100k | sc.=0.5",
+    "nodefence": "Undefended",
+    "no_defence": "Undefended",
+    "tamaraw": "Tamaraw",
+}

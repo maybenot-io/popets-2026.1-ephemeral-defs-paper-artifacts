@@ -1,0 +1,15 @@
+[package]
+name = "maybenot-machines"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = "1.0.202"
+maybenot = "2.1.0"
+maybenot-simulator = "2.1.0"
+enum-map = "2.7.3"
+rand_core = "0.6.4"
+rand = "0.8.5"
+anyhow = "1.0.86"

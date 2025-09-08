@@ -1,0 +1,2 @@
+dataset,dataset_length,base,base sent,base recv,defended,defended sent,defended recv,missing,missing sent,missing recv,load,load sent,load recv,delay,time base,time defended,rf,df
+/home/tobipull/regulator-u4.5-c0.5-r1200-d0.98-t2.5-n10-b10,19000,4188.8085,347.9627,3840.8458,4396.6467,549.7903,3846.8564,0.0000,0.0000,0.0000,0.0496,0.5800,0.0016,0.0181,28.0652,28.5731,-1.0000,-1.0000

@@ -1,0 +1,41 @@
+[workspace]
+resolver = "2"
+# Please keep this list topologically sorted by dependency relation, so that
+# every crate appears _before_ any other crate that depends on it.
+members = [
+    # lib for defense generation
+    "crates/maybenot-gen",
+    # lib of manually crafted machines
+    "crates/maybenot-machines",
+    # bin for defense creation
+    "crates/maybenot-cli",
+    # Rustbindings for ml code
+    "crates/mbnt-rustbindings"
+]
+
+[workspace.dependencies]
+meybenot-simulator = "2.1.0"
+maybenot = "2.1.0"
+
+# Keep all lints in sync with `test/Cargo.toml`
+[workspace.lints.rust]
+# Security
+non_ascii_idents = "forbid"
+
+# Deny old style Rust
+rust_2018_idioms = { level = "deny", priority = -1 }
+macro_use_extern_crate = "deny"
+absolute_paths_not_starting_with_crate = "deny"
+
+# Easy to read style and opinionated best practices
+explicit_outlives_requirements = "warn"
+missing_abi = "deny"
+unused_lifetimes = "warn"
+unused_macro_rules = "warn"
+single_use_lifetimes = "warn"
+
+# for profiling, use cargo build --profile profiling (binary size too large for
+# default release, went from 11 to 150 MiB)
+[profile.profiling]
+inherits = "release"
+debug = true

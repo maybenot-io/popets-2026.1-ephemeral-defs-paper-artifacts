@@ -1,0 +1,21 @@
+[project]
+name = "mbnt-rustbindings"
+version = "0.1.0"
+description = "Rust bindings for the maybenot simulator."
+readme = "README.md"
+authors = [
+    { name = "topiko", email = "topiko1987@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.2.2",
+]
+
+[tool.maturin]
+module-name = "mbnt"
+python-packages = ["mbnt"]
+python-source = "src/mbnt"
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"

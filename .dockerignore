@@ -1,0 +1,32 @@
+# Python junk
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local virtual environments
+def-ml/.venv/
+.venv/
+
+# Rust build artifacts
+target/
+
+# MLflow runs and outputs
+def-ml/mlruns/
+def-ml/outputs/
+def-ml/wfdata/
+def-ml/mbntmachines/
+def-ml/mlflow_*
+
+# Large/generated data
+def-ml/figs/
+def-ml/data/
+
+# Git metadata
+.git
+.gitignore
+
+# Dockerfile itself and docs
+Dockerfile
+DOCKER_README.md
+
