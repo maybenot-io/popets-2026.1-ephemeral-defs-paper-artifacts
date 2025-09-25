@@ -127,7 +127,8 @@ We recommend that you only download the
 Fingerprinting](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/circuitfp-general-rend.tar.gz),
 and
 [LongEnough.zip](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/LongEnough.zip)
-datasets for a more reasonable execution time of artifact evaluation.
+datasets for a more reasonable execution time of artifact evaluation. These can
+be downloaded and extracted into `def-ml/wfdata/` by running `download_datas.sh`.
 
 ### Estimated Time and Storage Consumption
 
