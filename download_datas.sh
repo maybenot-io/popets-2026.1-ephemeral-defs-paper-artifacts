@@ -10,6 +10,7 @@ tar -xvzf circuitfp-general-rend.tar.gz
 # Bigenough
 curl https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/bigenough-95x10x20-standard-rngsubpages.tar.gz -o bigenough.tar.gz
 tar -xvzf bigenough.tar.gz
+mv bigenough-95x10x20-standard-rngsubpages bigenough
 cd ..
 uv run python convert_data.py --dataset bigenough
 cd wfdata
@@ -17,6 +18,7 @@ cd wfdata
 # Gong-Surakav
 curl https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/gong-surakav-undefended-cw.tar.gz -o gong-surakav.tar.gz
 tar -xvzf gong-surakav.tar.gz
+mv gong-surakav-undefended-cw gong-surakav
 cp ../gong-surakav_rename.sh gong-surakav/
 cd gong-surakav
 bash gong-surakav_rename.sh
