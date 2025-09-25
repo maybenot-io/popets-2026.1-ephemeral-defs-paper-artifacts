@@ -584,7 +584,8 @@ uv run python main.py --config-name=laserbeak_wo_attention \
     train.defence_augmentation=0 \
     misc.mlflow.experiment_name=Ephemeral-bigenough-inftrain-infinite \
     network=infinite \
-    dataset=bigenough
+    dataset=bigenough \
+    dataset.test_splits="[0]"
 
 
 # This varies the cost of defense:
