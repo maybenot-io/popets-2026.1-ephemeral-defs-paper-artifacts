@@ -21,7 +21,7 @@ netwk_state=infinite
 events_mltp=16
 
 
-for xv in "[0]" "[1]" "[2]" "[3]" "[4]"
+for xv in "[0]" # "[1]" "[2]" "[3]" "[4]"
 do
 	echo $xv
 	for defence in ${defences[@]}
