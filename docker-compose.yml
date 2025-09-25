@@ -24,7 +24,7 @@ services:
     # Mounts: project code and data folders
     volumes:
       # Data folders
-      - ./def-ml/wfdata:/workspace/def-ml/wfdata:ro
+      - ./def-ml/wfdata:/workspace/def-ml/wfdata
       - ./def-ml/.data:/workspace/def-ml/.data
       - ./def-ml/mbntmachines:/workspace/def-ml/mbntmachines
       - ./def-ml/figs:/workspace/def-ml/figs

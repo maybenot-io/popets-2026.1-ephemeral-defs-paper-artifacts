@@ -223,8 +223,8 @@ docker compose logs -f defml
 
 The docker service `popets-mlflow` runs an instance of
 [MLflow](https://mlflow.org/), allowing you to access its UI at
-[http://127.0.0.1:8080](http://127.0.0.1:8080) to view the progress of
-experiment runs later and their results. In case you get errors of the form "run
+[http://127.0.0.1:8080](http://127.0.0.1:8080) to monitor the progress of the
+experiments and later access their results. In case you get errors of the form "run
 exists with the given id" you can delete the runs using the UI. Accessing the UI
 is the first test, it should look something like below:
 
@@ -284,7 +284,13 @@ compiled version of maybenot produces the expected defenses.
 ## Artifact Evaluation
 
 This step is strictly required in order to proceed... Before one can run
-anything we need to prepare the data. Do this outside the container. Download
+anything we need to prepare the data; move into the container
+`docker compose exec defml bash` and either run
+```bash
+bash download_datas.sh
+```
+or *manually* perform the following steps:
+download
 [BigEnough](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/bigenough-95x10x20-standard-rngsubpages.tar.gz)
 and
 [Gong-Surakav](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/gong-surakav-undefended-cw.tar.gz) (if doing the full evaluation).
@@ -296,9 +302,7 @@ rename the traces using `def-ml/gong_surakav_rename.sh`; copy the script to the
 gong-surakav traces directory and run `./gong-surakav_rename.sh` - it'll rename
 the files for easier interpretation later.
 
-After data is prepared run the following (now already inside the container)
-from the `def-ml` folder:
-
+After the datasets have been downloaded run from the `def-ml` folder:
 ```bash
 cd /workspace/def-ml/
 uv run python convert_data.py --dataset bigenough
@@ -312,9 +316,8 @@ worry not about the warning.
 This generates some metadata and a metadata dataframe we are using to access the
 data.
 
-Finally, also download and extract the [Circuit
-Fingerprinting](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/circuitfp-general-rend.tar.gz)
-dataset, named `circuitfp-general-rend.tar.gz`, in the `def-ml/wfdata/` folder:
+*Still only if you did not use the* `download_datas.sh` in the previous step) you need to download and extract the [Circuit Fingerprinting](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/circuitfp-general-rend.tar.gz) dataset, named
+`circuitfp-general-rend.tar.gz`, in the `def-ml/wfdata/` folder:
 `tar -xf circuitfp-general-rend.tar.gz`.
 
 ### Main Results, Claims, and Experiments
@@ -447,7 +450,7 @@ The ephemeral blocking (infinite network model) defenses created in Main Result
 `eph-blocking-1k-c2-100k` from earlier, reproduce the accuracy for ephemeral
 defenses on the Default LongEnough dataset in Table 4 (Section 6).
 
-Outside of the container, download
+Outside of the container, download (if you havent already e.g., by using `download_datas.sh`)
 [LongEnough.zip](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/LongEnough.zip)
 and unzip it into the `def-ml/wfdata/` folder. Then download
 [longenough-rename.py](https://dart.cse.kau.se/popets-2026.1-ephemeral-defs-paper-artifacts/longenough-rename.py)
@@ -498,8 +501,7 @@ Copy the defenses from Main Result 2:
 cp /workspace/eph-defenses/eph-* /workspace/def-ml/mbntmachines/
 ```
 
-Repeat the below steps for `bigenough` and `gong-surakav` replacing `[dataset]`
-below.
+Repeat the below steps for `bigenough` and `gong-surakav`.
 
 If short in time you can only run the `eph-padding` with `infinite` network
 conditions, (expect approx. 10 h runtime). If so use the `--truncated`
@@ -563,7 +565,7 @@ Or a single run along the lines:
 
 `uv run python scripts/cross_attack_defense_heatmap.py -en Ephemeral-bigenough-aug1 --network both --model df`
 
-output found in `figs/*`.
+output in `stdout` and in `figs/*`.
 
 #### Main Result 6: Ephemeral Blocking Defenses vs Laserbeak w/o Attention
 
@@ -593,7 +595,7 @@ uv run python scripts/defense_cost.py -en Ephemeral-bigenough-costcurve-infinite
 ```
 
 generates Figure 4 (`figs/cost_curve.png`). _Note_: this requires that you
-have generated the ephemeral blocking defenses!
+have generated the ephemeral blocking defenses (see steps in main result 2)!
 
 ## Limitations
 
