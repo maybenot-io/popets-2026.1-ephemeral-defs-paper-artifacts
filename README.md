@@ -581,9 +581,13 @@ export CUBLAS_WORKSPACE_CONFIG=:4096:8
 # To generate the undefended inftrain results:
 uv run python main.py --config-name=laserbeak_wo_attention \
     defence=no_defence \
+    lr_scheduler=plateau \
+    lr_scheduler.lr_patience=8 \
     train.defence_augmentation=0 \
     misc.mlflow.experiment_name=Ephemeral-bigenough-inftrain-infinite \
     network=infinite \
+    train.n_epochs=0 \
+    train.patience=32 \
     dataset=bigenough \
     dataset.test_splits="[0]"
 
