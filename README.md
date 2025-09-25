@@ -351,7 +351,7 @@ cp ../experiments/circuit-fingerprinting/parameter-tuning/0/cf.toml cf-0.toml
 # vim cf-0.toml
 cp ../experiments/circuit-fingerprinting/parameter-tuning/10/cf.toml cf-10.toml
 # do the same config updates (if needed) here as just done above for cf-0.toml
-vim cf-10.toml
+# vim cf-10.toml
 # 1 minute with AMD EPYC 7713P 64 cores
 maybenot search -c cf-0.toml -o cf-0.def -d ""
 # 11 minutes
