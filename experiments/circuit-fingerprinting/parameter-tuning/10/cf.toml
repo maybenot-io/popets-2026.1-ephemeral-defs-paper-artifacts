@@ -33,7 +33,7 @@ n = 1_000
 max_duration_sec = 900
 
 [sim]
-base_dataset = "/home/tobipull/circuitfp-general-rend"
+base_dataset = "/workspace/def-ml/wfdata/circuitfp-general-rend"
 max_samples = 10_000
 tunable_defense_limits = [1.0, 0.75, 0.5]
 seed = 0
@@ -57,9 +57,9 @@ trace_length = 10_000
 events_multiplier = 1_000
 
 [eval]
-base_dataset = "/home/tobipull/circuitfp-general-rend"
+base_dataset = "/workspace/def-ml/wfdata/circuitfp-general-rend"
 trace_length = 10_000
-df = "/home/tobipull/work/scripts/df.py"
-rf = "/home/tobipull/work/scripts/rf.py"
+df = "/workspace/scripts/df.py"
+rf = "/workspace/scripts/rf.py"
 csv = "cf-tune-10.csv"
 seed = 0

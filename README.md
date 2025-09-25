@@ -338,15 +338,15 @@ mkdir fig2
 cd fig2
 cp ../experiments/circuit-fingerprinting/parameter-tuning/0/cf.toml cf-0.toml
 # update "base_dataset" under [sim] and [eval] to the extracted circuitfp-general-rend.tar.gz
-# dataset, update the "df" and "rf" paths to the scripts, and set "csv" to some filename
-# (same as you update below). For example:
+# dataset , update the "df" and "rf" paths to the scripts, and set "csv" to some filename
+# (same as you update below). The defaults (should be correct, if you have followed steps) are:
 # base_dataset = "/workspace/def-ml/wfdata/circuitfp-general-rend"
 # df = "/workspace/scripts/df.py"
 # rf = "/workspace/scripts/rf.py"
 # csv = "cf-tune.csv"
-vim cf-0.toml
+# vim cf-0.toml
 cp ../experiments/circuit-fingerprinting/parameter-tuning/10/cf.toml cf-10.toml
-# do the same config updates here as just done above for cf-0.toml
+# do the same config updates (if needed) here as just done above for cf-0.toml
 vim cf-10.toml
 # 1 minute with AMD EPYC 7713P 64 cores
 maybenot search -c cf-0.toml -o cf-0.def -d ""
@@ -465,7 +465,7 @@ cp ../experiments/video-fingerprinting/accuracy/eph-blocking-inf-default.toml .
 # df = "/workspace/scripts/vdf.py"
 # rf = "/workspace/scripts/vrf.py"
 # csv = "results-vf-eph.csv"
-vim eph-blocking-inf-default.toml
+# vim eph-blocking-inf-default.toml
 # copy the blocking defenses from Main result 2
 cp ../eph-defenses/eph-blocking-1k-c2-100k .
 # about 3 hours, progress bar gets stuck at 100% on some last very unlucky samples,

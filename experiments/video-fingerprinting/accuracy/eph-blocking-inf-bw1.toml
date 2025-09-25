@@ -1,6 +1,7 @@
 [sim]
 #base_dataset = "/home/tobipull/LongEnough/none-none/"
-base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+base_dataset = "/workspace/def-ml/wfdata/LongEnough/none-none/"
 #base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw2/"
 #base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw4/"
 #base_dataset = "/home/tobipull/LongEnough-variable/none-none-bw8/"
@@ -28,12 +29,16 @@ blocking_frac = [0.5, 0.5]
 
 [eval]
 #base_dataset = "/home/tobipull/LongEnough/none-none/"
-base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+#base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw1/"
+base_dataset = "/workspace/def-ml/wfdata/LongEnough/none-none/"
 #base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw2/"
 #base_dataset = "/home/tobipull/LongEnough-variable-extended/none-none-bw4/"
 #base_dataset = "/home/tobipull/LongEnough-variable/none-none-bw8/"
 trace_length = 2_000_000
-df = "/home/tobipull/work/scripts/vdf.py"
-rf = "/home/tobipull/work/scripts/vrf.py"
-csv = "eph-blocking-inf.csv"
+df = "/workspace/scripts/vdf.py"
+rf = "/workspace/scripts/vrf.py"
+csv = "results-vf-eph.csv"
+#df = "/home/tobipull/work/scripts/vdf.py"
+#rf = "/home/tobipull/work/scripts/vrf.py"
+#csv = "eph-blocking-inf.csv"
 seed = 0
