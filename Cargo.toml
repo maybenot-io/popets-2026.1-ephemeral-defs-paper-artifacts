@@ -13,9 +13,10 @@ members = [
     "crates/mbnt-rustbindings"
 ]
 
-[workspace.dependencies]
-meybenot-simulator = "2.1.0"
-maybenot = "2.1.0"
+[patch.crates-io]
+maybenot-gen = { version = "=0.1.0", path = "crates/maybenot-gen" }
+maybenot-machines = { version = "=0.1.0", path = "crates/maybenot-machines" }
+maybenot-cli = { version = "=0.1.0", path = "crates/maybenot-cli" }
 
 # Keep all lints in sync with `test/Cargo.toml`
 [workspace.lints.rust]
