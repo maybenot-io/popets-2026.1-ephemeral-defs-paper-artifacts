@@ -458,7 +458,7 @@ and run it on the extracted data: `python longenough-rename.py
 LongEnough/none-none/`. Next, move to the container.
 
 ```bash
-cd /workflow/
+cd /workspace/
 mkdir vf-eph
 cd vf-eph
 cp ../experiments/video-fingerprinting/accuracy/eph-blocking-inf-default.toml .
